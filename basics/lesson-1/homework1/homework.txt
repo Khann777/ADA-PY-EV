@@ -1,0 +1,36 @@
+1 Задание 
+
+cd
+mkdir test
+cd test
+touch test.py
+
+2 Задание
+
+cd
+mkdir lesson
+
+3 Задание
+
+rm -rf lesson/ test/
+
+4 Задание
+
+mkdir hidden
+cd hidden
+touch .secret .env
+ls -a
+
+5 Задание
+
+mkdir hello
+mv .env hello/
+
+6 Задание 
+
+mv .secret .ada
+
+7 Задание
+
+cd 
+ls -a hidden/hello
