@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup as BS
+from bs4 import BeautifulSoup as BS # type: ignore
 import csv
 
 def get_html(url):
