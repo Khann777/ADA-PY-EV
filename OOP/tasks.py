@@ -545,4 +545,4 @@ class Car:
             return 'Автомобиль запущен c двигателем - {self.engine}'
         
 obj = Car()
-print(obj.start())
+# print(obj.start())
