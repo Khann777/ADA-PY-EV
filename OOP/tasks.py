@@ -74,16 +74,61 @@ class Reader(Person):
         return f'Я {self.name} и я не кушаю {self.food}, а предпочитаю книги'
 
         
-obj = Reader('123', '+996509079999')
-print(obj.take_book('Harry Potter'))
-print(obj.return_book('Harry Potter'))
-print(obj.eat('Burger'))
+# obj = Reader('123', '+996509079999')
+# print(obj.take_book('Harry Potter'))
+# print(obj.return_book('Harry Potter'))
+# print(obj.eat('Burger'))
 
 
 #? 4) Создать класс Student, Aspirant. Student содержит атрибуты name, group, average_mark(средняя оценка). Создайте метод get_scholarship, который посчитает стипендию за счёт средней оценки. Если средняя оценка равна 5 то метод возвращает 2000 сом, иначе 1500 сом. Класс Aspirant должен наследовать класс Student. В Aspirant переопределите метод get_scholarship, так чтоб если оценка 5 то возвращает 3000 сом, иначе 2500 сом. 
 
+class Student:
+    def __init__(self, name, group, average_mark):
+        self.name = name
+        self.group = group
+        self.average_mark = average_mark
 
+    def get_scholarship(self):
+        if self.average_mark == 5:
+            return 2000
+        else: 
+            return 1500        
+class Aspirant(Student):
+    def __init__(self, name, group, average_mark):
+        super().__init__(name, group, average_mark)
+
+    def get_scholarship(self):
+        if self.average_mark == 5:
+            return 3000
+        else:
+            return 2500
+obj = Student('Davlyat', 'surgeant', 4)
+# print(obj.get_scholarship())
+obj = Aspirant('Davlyat', 'Surgeant', 5)
+# print(obj.get_scholarship())
 
 #? 5) Создайте базовый класс Money у которого есть два аттрибута экземпляра класса (country, symbol) и классы Dollar и Euro, которые наследуются от Money, у этих классов должен быть аттрибут rate, в котором будет храниться курс валют. Эти классы должны иметь метод exchange, который конвертирует сумму в сомы и возвращает строку с результатом 
 #? "$ {amount} равен {som} сомам".
 #? "€ {amount} равен {som} сомам"
+
+class Money:
+    def __init__(self, country, symbol):
+        self.country = country
+        self.symbol = symbol
+
+class Dollar(Money):
+    __rate = 86.5
+    def exchange(self, amount):
+        som = amount * self.__rate
+        return f"$ {amount} равен {som} сомам"
+
+class Euro(Money):
+    __rate = 91.5
+    def exchange(self, amount):
+        som = amount * self.__rate
+        return f"€ {amount} равен {som} сомам"
+    
+obj = Dollar('USA', '$')
+print(obj.exchange(500))
+obj = Euro("Europe", '€')
+print(obj.exchange(500))
