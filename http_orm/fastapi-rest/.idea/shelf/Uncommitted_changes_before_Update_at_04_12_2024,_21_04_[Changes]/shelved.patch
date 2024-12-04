@@ -1,0 +1,25 @@
+Index: requirements.txt
+===================================================================
+diff --git a/requirements.txt b/requirements.txt
+deleted file mode 100644
+--- a/requirements.txt	(revision 0f2b076e038b7a517df3c031ed6cf3bbb88a2b0d)
++++ /dev/null	(revision 0f2b076e038b7a517df3c031ed6cf3bbb88a2b0d)
+@@ -1,5 +0,0 @@
+-fastapi
+-uvicorn
+-psycopg2-binary
+-sqlalchemy
+-python-decouple
+\ No newline at end of file
+Index: .env
+===================================================================
+diff --git a/.env b/.env
+deleted file mode 100644
+--- a/.env	(revision 0f2b076e038b7a517df3c031ed6cf3bbb88a2b0d)
++++ /dev/null	(revision 0f2b076e038b7a517df3c031ed6cf3bbb88a2b0d)
+@@ -1,4 +0,0 @@
+-DB_USER=davlyat
+-DB_PASSWORD=1
+-DB_HOST=localhost
+-DB_NAME=fastapi-rest
+\ No newline at end of file
