@@ -14,3 +14,8 @@ class ProductSerializer(serializers.ModelSerializer):
         return value
 
         #? Есть 2 метода для валидации в сериализаторах, validate и validate_<field>, validate(self, attrs) - attrs - словарь с данными из запроса, сам метод проверяет все данные. validate_<field>(self, <fields>) - валидирует какое-то определенное поле, если валидация прошла, то нужно обязательно вернуть это поле
+
+class ProductListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'title', 'price']
