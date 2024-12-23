@@ -36,7 +36,7 @@ class PostViewSet(ModelViewSet):
     @action(detail=True, methods=['POST'])
     def toggle_like(self, request, pk=None ):
         post = self.get_object()
-        like = request.data.filter(post=post)
+        like = request.user.likes.filter(post=post)
         if like:
             like.delete()
             return Response('Successful deleted like',status=204)
@@ -49,7 +49,7 @@ class PostViewSet(ModelViewSet):
     @action(detail=True, methods=['POST'])
     def toggle_favorite(self, request, pk=None ):
         post = self.get_object()
-        favorite = request.data.filter(post=post)
+        favorite = request.user.favorites.filter(post=post)
         if favorite:
             favorite.delete()
             return Response('Successful deleted favorite',status=204)
