@@ -22,3 +22,24 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
+
+class LogoutSerializer(serializers.Serializer):
+    refresh_token = serializers.CharField(required=True, write_only=True)
+
+
+class ResetPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+
+class ResetPasswordConfirmSerializer(serializers.Serializer):
+    code = serializers.CharField(required=True, max_length=6)
+    password = serializers.CharField(required=True, write_only=True, min_length=8)
+    password_confirm = serializers.CharField(required=True, write_only=True, min_length=8)
+
+    def validate(self, attrs):
+        password = attrs.get('password')
+        password_confirm = attrs.pop('password_confirm')
+
+        if password != password_confirm:
+            raise serializers.ValidationError('Passwords do not match')
+        return attrs

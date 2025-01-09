@@ -11,3 +11,12 @@ def send_activation_email(email, code):
         [email],
         fail_silently=False,
     )
+
+def send_reset_password_email(email, code):
+    send_mail(
+        subject='Hello, reset your password',
+        message=f'To reset your password, enter this code to the link: \n{code}',
+        from_email='nurdinov.d777@gmail.com',
+        recipient_list=[email],
+        fail_silently=True,
+    )

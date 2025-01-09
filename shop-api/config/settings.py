@@ -20,7 +20,8 @@ DJANGO_APPS = [
 ]
 
 OWN_APPS = [
-    'apps.account'
+    'apps.account',
+    'apps.category'
 ]
 
 ADDITIONAL_APPS = [
@@ -158,3 +159,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
+REDIS_HOST = config('REDIS_HOST')
+REDIS_PORT = config('REDIS_PORT')
+
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
