@@ -21,7 +21,8 @@ DJANGO_APPS = [
 
 OWN_APPS = [
     'apps.account',
-    'apps.category'
+    'apps.category',
+    'apps.product',
 ]
 
 ADDITIONAL_APPS = [
