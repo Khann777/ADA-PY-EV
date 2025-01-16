@@ -12,7 +12,7 @@ class IsProductOwner(BasePermission):
         print(request)
         if request.user or not request.user.is_authenticated:
             return False
-        product_id = request.data.get('product')
+        product_id = view.kwargs.get('pk')
 
         try:
             product = Product.objects.get(id=product_id)

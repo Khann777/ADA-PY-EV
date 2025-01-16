@@ -37,5 +37,8 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='product_images/')
 
+    def perform_create(self):
+        product = self.product
+
     def __str__(self):
         return f'{self.product}'

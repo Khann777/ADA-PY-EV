@@ -23,6 +23,8 @@ OWN_APPS = [
     'apps.account',
     'apps.category',
     'apps.product',
+    'apps.order',
+    'apps.review',
 ]
 
 ADDITIONAL_APPS = [
